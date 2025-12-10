@@ -4,6 +4,7 @@
  * This template provides a starting point for implementing SGNL jobs.
  * Replace this implementation with your specific business logic.
  */
+import { resolveJSONPathTemplates} from '@sgnl-actions/utils';
 
 export default {
   /**
@@ -17,8 +18,16 @@ export default {
     console.log(`Processing target: ${params.target}`);
     console.log(`Action: ${params.action}`);
 
+    const jobContext = context.data || {};
+
+    // Resolve JSONPath templates in params
+    const { result: resolvedParams, errors } = resolveJSONPathTemplates(params, jobContext);
+    if (errors.length > 0) {
+      throw new Error(`Failed to resolve template values: ${errors.join(', ')}`);
+    }
+
     // TODO: Replace with your implementation
-    const { target, action, options = [], dry_run = false } = params;
+    const { target, action, options = [], dry_run = false } = resolvedParams;
 
     if (dry_run) {
       console.log('DRY RUN: No changes will be made');
