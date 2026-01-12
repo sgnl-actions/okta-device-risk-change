@@ -826,7 +826,7 @@ var script = {
     // Parse parameters
     const subject = parseSubject(resolvedParams.subject);
 
-    // Build event payload - subject goes inside the event for Okta events
+    // Build event payload
     const eventPayload = {
       subject: subject,
       event_timestamp: Math.floor(Date.now() / 1000),
