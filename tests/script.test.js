@@ -110,8 +110,8 @@ describe('Okta Device Risk Change', () => {
             'https://schemas.okta.com/secevent/okta/event-type/device-risk-change': expect.objectContaining({
               subject: { format: 'email', email: 'user@example.com' },
               initiating_entity: 'admin',
-              reason_admin: { en: "Device risk level changed", es: "Nivel de riesgo del dispositivo cambiado" },
-              reason_user: { en: "Your device risk level has changed", es: "El nivel de riesgo de tu dispositivo ha cambiado" }
+              reason_admin: { en: 'Device risk level changed', es: 'Nivel de riesgo del dispositivo cambiado' },
+              reason_user: { en: 'Your device risk level has changed', es: 'El nivel de riesgo de tu dispositivo ha cambiado' }
             })
           })
         })
@@ -172,7 +172,7 @@ describe('Okta Device Risk Change', () => {
           events: expect.objectContaining({
             'https://schemas.okta.com/secevent/okta/event-type/device-risk-change': expect.objectContaining({
               subject: { format: 'email', email: 'user@example.com' },
-              reason_admin: { en: "English reason", es: "Razón en español" }
+              reason_admin: { en: 'English reason', es: 'Razón en español' }
             })
           })
         })
