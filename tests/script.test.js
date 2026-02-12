@@ -21,6 +21,7 @@ jest.unstable_mockModule('@sgnl-actions/utils', () => ({
 const { transmitSET } = await import('@sgnl-ai/set-transmitter');
 const { signSET, getBaseURL, getAuthorizationHeader } = await import('@sgnl-actions/utils');
 const script = await import('../src/script.mjs');
+const OKTA_SSF_SET_PATH = '/security/api/v1/security-events'
 
 describe('Okta Device Risk Change', () => {
   const validParams = {
@@ -84,7 +85,7 @@ describe('Okta Device Risk Change', () => {
 
       expect(transmitSET).toHaveBeenCalledWith(
         'mock.jwt.token',
-        'https://events.receiver.com/caep',
+        'https://events.receiver.com/caep' + OKTA_SSF_SET_PATH,
         expect.objectContaining({
           headers: expect.objectContaining({
             'Authorization': 'Bearer test-token',
