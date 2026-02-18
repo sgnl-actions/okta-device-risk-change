@@ -1,4 +1,4 @@
-name: Okta Device Risk Change
+name: okta-device-risk-change
 description: Transmits an Okta Device Risk Change event as a Security Event Token (SET) to a specified endpoint
 
 inputs:
