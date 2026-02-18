@@ -21,7 +21,7 @@ jest.unstable_mockModule('@sgnl-actions/utils', () => ({
 const { transmitSET } = await import('@sgnl-ai/set-transmitter');
 const { signSET, getBaseURL, getAuthorizationHeader } = await import('@sgnl-actions/utils');
 const script = await import('../src/script.mjs');
-const OKTA_SSF_SET_PATH = '/security/api/v1/security-events'
+const OKTA_SSF_SET_PATH = '/security/api/v1/security-events';
 
 describe('Okta Device Risk Change', () => {
   const validParams = {
@@ -113,8 +113,8 @@ describe('Okta Device Risk Change', () => {
             'https://schemas.okta.com/secevent/okta/event-type/device-risk-change': expect.objectContaining({
               subject: { format: 'email', email: 'user@example.com' },
               initiating_entity: 'admin',
-              reason_admin: { en: "Device risk level changed", es: "Nivel de riesgo del dispositivo cambiado" },
-              reason_user: { en: "Your device risk level has changed", es: "El nivel de riesgo de tu dispositivo ha cambiado" }
+              reason_admin: { en: 'Device risk level changed', es: 'Nivel de riesgo del dispositivo cambiado' },
+              reason_user: { en: 'Your device risk level has changed', es: 'El nivel de riesgo de tu dispositivo ha cambiado' }
             })
           })
         })
@@ -175,7 +175,7 @@ describe('Okta Device Risk Change', () => {
           events: expect.objectContaining({
             'https://schemas.okta.com/secevent/okta/event-type/device-risk-change': expect.objectContaining({
               subject: { format: 'email', email: 'user@example.com' },
-              reason_admin: { en: "English reason", es: "Razón en español" }
+              reason_admin: { en: 'English reason', es: 'Razón en español' }
             })
           })
         })
